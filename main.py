@@ -95,7 +95,7 @@ def write_jira_csv(path):
 
 
 if __name__ == '__main__':
-    path_to_file = "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-05-03_to_2021-05-09.csv"
+    path_to_file = "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-06-28_to_2021-07-04.csv"
     read_hubstaff_timesheet(path_to_file)
     transform_rows()
     write_jira_csv(path_to_file)
