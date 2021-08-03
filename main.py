@@ -14,6 +14,8 @@ result_csv_rows = []
 def read_hubstaff_timesheet(path):
     with open(path) as file:
         rows_timesheet = csv.reader(file, delimiter=',')
+        timesheet_rows.clear()
+        date_row.clear()
 
         for row in rows_timesheet:
             if 'Member' in row:
@@ -95,7 +97,14 @@ def write_jira_csv(path):
 
 
 if __name__ == '__main__':
-    path_to_file = "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-06-28_to_2021-07-04.csv"
-    read_hubstaff_timesheet(path_to_file)
-    transform_rows()
-    write_jira_csv(path_to_file)
+    path_to_file = [
+        "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-07-05_to_2021-07-11.csv",
+        "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-07-12_to_2021-07-18.csv",
+        "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-07-19_to_2021-07-25.csv",
+        "/home/stayer/downloads/sergey bogdanov_timesheet_report_2021-07-26_to_2021-08-01.csv"
+        ]
+    for path in path_to_file:
+        read_hubstaff_timesheet(path)
+        transform_rows()
+
+    write_jira_csv(path_to_file[-1])
